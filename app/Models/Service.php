@@ -1,0 +1,32 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
+use App\Traits\Language;
+use TCG\Voyager\Traits\Translatable;
+
+class Service extends Model
+{
+    use HasFactory, Translatable, Language;
+
+    protected $translatable = ['title', 'excerpt', 'description', 'seo_title', 'seo_description', 'seo_keywords'];
+
+    public function categories()
+    {
+        return $this->belongsToMany('App\Models\Category', 'service_category', 'service_id', 'category_id');
+    }
+
+    public function scopeActive($query)
+    {
+        return $query->where('active', true)->with('translations')->get();
+    }
+
+    /*public function setTitleAttribute($value)
+    {
+        $this->attributes['title'] = $value;
+        $this->attributes['slug'] = Str::slug($value);
+    }*/
+}

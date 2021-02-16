@@ -1,0 +1,33 @@
+<?php
+
+namespace App\Providers;
+
+use App\Models\Post;
+use App\Models\Service;
+use App\Observers\PostObserver;
+use App\Observers\ServiceObserver;
+use Illuminate\Support\ServiceProvider;
+
+class ObserverServiceProvider extends ServiceProvider
+{
+    /**
+     * Register services.
+     *
+     * @return void
+     */
+    public function register()
+    {
+        //
+    }
+
+    /**
+     * Bootstrap services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        Service::observe(ServiceObserver::class);
+        Post::observe(PostObserver::class);
+    }
+}
