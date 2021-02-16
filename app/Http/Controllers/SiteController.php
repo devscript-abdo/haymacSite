@@ -22,7 +22,6 @@ class SiteController extends Controller
 
     public function about()
     {
-
         return view('dark.pages.about.index');
     }
 

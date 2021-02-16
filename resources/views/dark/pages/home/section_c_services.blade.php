@@ -1,5 +1,4 @@
 <!-- ==================== Start Services ==================== -->
-
 <section class="services">
     <div class="container">
         <div class="sec-head custom-font text-center">
@@ -11,7 +10,9 @@
             <div class="col-lg-3 col-md-6 item-box bg-img wow fadeInLeft" data-wow-delay=".3s"
                 data-background="img/1.jpg">
                 <h4 class="custom-font">Best Of <br> Our Features</h4>
-                <a href="about.html" class="btn-curve btn-bord btn-lit mt-40"><span>See All Services</span></a>
+                <a href="{{route('services')}}" class="btn-curve btn-bord btn-lit mt-40">
+                    <span>{{__('buttons.allservices')}}</span>
+                </a>
             </div>
             <div class="col-lg-3 col-md-6 item-box wow fadeInLeft" data-wow-delay=".5s">
                 <span class="icon pe-7s-paint-bucket"></span>
