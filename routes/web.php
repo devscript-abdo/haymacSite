@@ -40,4 +40,6 @@ Route::group(
 
 Route::group(['prefix' => 'theadmin'], function () {
     Voyager::routes();
+
+   // Route::redirect('theadmin/lang', 'theadmin/languages')->name('llng');
 });

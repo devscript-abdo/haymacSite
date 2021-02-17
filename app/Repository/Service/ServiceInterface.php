@@ -12,5 +12,6 @@ interface ServiceInterface
 
     public function activeItems();
 
+	public function homeItems();
 	// more
 }

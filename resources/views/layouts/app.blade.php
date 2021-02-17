@@ -3,10 +3,9 @@
 
 <head>
 
-     @include('layouts.parts.metas')
-    {{--@include('layouts.parts.links')--}}
+    @include('layouts.parts.metas')
+    @include('layouts.parts.links')
 
-    <!-- Title  -->
     <title>Haymacproduction</title>
 
     <link rel="stylesheet" href="{{asset('css/app.css')}}" />
@@ -15,9 +14,9 @@
 
 <body>
 
-     @include('layouts.sections.loader')
+    {{--@include('layouts.sections.loader')
 
-     @include('layouts.sections.progress')
+     @include('layouts.sections.progress')--}}
 
      @include('layouts.sections.cursor')
 

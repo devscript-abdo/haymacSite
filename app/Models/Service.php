@@ -10,6 +10,8 @@ use TCG\Voyager\Traits\Translatable;
 
 class Service extends Model
 {
+
+
     use HasFactory, Translatable, Language;
 
     protected $translatable = ['title', 'excerpt', 'description', 'seo_title', 'seo_description', 'seo_keywords'];
@@ -22,6 +24,15 @@ class Service extends Model
     public function scopeActive($query)
     {
         return $query->where('active', true)->with('translations')->get();
+    }
+
+    public function scopeHome($query)
+    {
+        return $query->where('active', true)
+            ->with('translations')
+            ->inRandomOrder()
+            ->limit(3)
+            ->get();
     }
 
     /*public function setTitleAttribute($value)

@@ -17,7 +17,7 @@ class RepositoryServiceProvider extends ServiceProvider
             'App\Repository\Slider\SliderInterface',
             'App\Repository\Slider\SliderRepository'
         );
-        
+
         $this->app->bind(
             'App\Repository\Page\PageInterface',
             'App\Repository\Page\PageRepository'
@@ -26,6 +26,21 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(
             'App\Repository\Service\ServiceInterface',
             'App\Repository\Service\ServiceRepository'
+        );
+
+        $this->app->bind(
+            'App\Repository\Project\ProjectInterface',
+            'App\Repository\Project\ProjectRepository'
+        );
+
+        $this->app->bind(
+            'App\Repository\Client\ClientInterface',
+            'App\Repository\Client\ClientRepository'
+        );
+
+        $this->app->bind(
+            'App\Repository\Testimonial\TestimonialInterface',
+            'App\Repository\Testimonial\TestimonialRepository'
         );
     }
 

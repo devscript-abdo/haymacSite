@@ -1,11 +1,6 @@
 <?php
 
-return [
-
-   /**** */
-
-   'readmore'=>'Lire plus',
-
-   'allservices'=>'Voir tous les services'
-
-];
+return array (
+  'allservices' => 'les services',
+  'readmore' => 'Lire plus',
+);

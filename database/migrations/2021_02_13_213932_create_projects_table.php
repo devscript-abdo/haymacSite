@@ -28,7 +28,7 @@ class CreateProjectsTable extends Migration
             $table->boolean('active')->default(true);
             $table->boolean('oursolution')->default(false);
            // $table->unsignedBigInteger('tag_id');
-           // $table->unsignedBigInteger('category_id');
+           
             /*************************************** */
             $table->string('seo_title')->nullable();
             $table->text('seo_description')->nullable();

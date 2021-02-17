@@ -6,61 +6,31 @@
             <div class="col-lg-12 no-padding">
                 <div class="swiper-container">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <div class="content wow noraidus fadeInUp" data-wow-delay=".3s">
-                                <div class="item-img bg-img wow imago"
-                                    data-background="img/portfolio/metro/01.jpg">
-                                </div>
-                                <div class="cont">
-                                    <h6><a href="#0">art & illustration</a></h6>
-                                    <h4><a href="project-details.html">Innovation and Crafts.</a></h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="content wow noraidus fadeInUp" data-wow-delay=".3s">
-                                <div class="item-img bg-img wow imago"
-                                    data-background="img/portfolio/metro/02.jpg">
-                                </div>
-                                <div class="cont">
-                                    <h6><a href="#0">art & illustration</a></h6>
-                                    <h4><a href="project-details.html">Inspiring new space.</a></h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="content wow noraidus fadeInUp" data-wow-delay=".3s">
-                                <div class="item-img bg-img wow imago"
-                                    data-background="img/portfolio/metro/03.jpg">
-                                </div>
-                                <div class="cont">
-                                    <h6><a href="#0">art & illustration</a></h6>
-                                    <h4><a href="project-details.html">Natural plus modern.</a></h4>
+                        @foreach($projects as $project)
+                           {{-- @php
+                                $images = json_decode($project->photos);
+                               // dd(array_shift($images))
+                            @endphp--}}
+                            <div class="swiper-slide">
+                                <div class="content wow noraidus fadeInUp" data-wow-delay=".3s">
+                                    <div class="item-img bg-img wow imago"
+                                        data-background="{{$project->first_photo}}">
+                                    </div>
+                                    <div class="cont">
+                                        <h6>
+                                            <a href="#0">
+                                              {{$project->category->name}}
+                                            </a>
+                                        </h6>
+                                        <h4>
+                                            <a href="{{route('portfolio.single',$project->slug)}}">
+                                                {{$project->field('title')}}
+                                            </a>
+                                        </h4>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="content wow noraidus fadeInUp" data-wow-delay=".3s">
-                                <div class="item-img bg-img wow imago"
-                                    data-background="img/portfolio/metro/04.jpg">
-                                </div>
-                                <div class="cont">
-                                    <h6><a href="#0">art & illustration</a></h6>
-                                    <h4><a href="project-details.html">Innovation and Crafts.</a></h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="content wow noraidus fadeInUp" data-wow-delay=".3s">
-                                <div class="item-img bg-img wow imago"
-                                    data-background="img/portfolio/metro/05.jpg">
-                                </div>
-                                <div class="cont">
-                                    <h6><a href="#0">art & illustration</a></h6>
-                                    <h4><a href="project-details.html">Inspiring new space.</a></h4>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
 
                     <!-- slider setting -->

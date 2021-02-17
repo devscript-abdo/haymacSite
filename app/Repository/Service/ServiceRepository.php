@@ -30,4 +30,8 @@ class ServiceRepository  implements ServiceInterface
     {
         return $this->model->active();
     }
+    public function homeItems()
+    {
+        return $this->model->home();
+    }
 }

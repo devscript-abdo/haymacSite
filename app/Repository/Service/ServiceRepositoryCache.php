@@ -41,4 +41,11 @@ class ServiceRepositoryCache  implements ServiceInterface
             return $this->model->active();
         });
     }
+
+    public function homeItems()
+    {
+        return $this->cache->remember('services_cache', self::TTL, function () {
+            return $this->model->home();
+        });
+    }
 }

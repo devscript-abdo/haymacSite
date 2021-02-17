@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Repository\Client\ClientInterface;
 use App\Repository\Page\PageInterface;
+use App\Repository\Project\ProjectInterface;
 use App\Repository\Service\ServiceInterface;
 use App\Repository\Slider\SliderInterface;
-
+use App\Repository\Testimonial\TestimonialInterface;
 use Illuminate\Http\Request;
 
 class SiteController extends Controller
@@ -13,11 +15,18 @@ class SiteController extends Controller
 
     public function index()
     {
-        // $sliders = $this->slider->activeItems();
-        $sliders = app(SliderInterface::class)->activeItems();
-        // $about = $this->page->getPage('a-propos-de-nous');
 
-        return view('dark.pages.home.index', compact('sliders'));
+        $sliders  = app(SliderInterface::class)->activeItems();
+
+        $services = app(ServiceInterface::class)->homeItems();
+
+        $projects = app(ProjectInterface::class)->homeItems();
+
+        $clients  = app(ClientInterface::class)->activeItems();
+
+        $testimonials = app(TestimonialInterface::class)->activeItems();
+
+        return view('dark.pages.home.index', compact('sliders', 'services', 'projects', 'clients', 'testimonials'));
     }
 
     public function about()
@@ -29,7 +38,7 @@ class SiteController extends Controller
     {
 
         $services = app(ServiceInterface::class)->activeItems();
-        
+
         return view('dark.pages.services.index', compact('services'));
     }
 
