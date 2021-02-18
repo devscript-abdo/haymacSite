@@ -38,7 +38,10 @@ class PostRepositoryCache  implements PostInterface
     public function getPost($slug)
     {
         return $this->cache->remember('post_cache' . $slug, self::TTL, function () use ($slug) {
-            return $this->model->whereSlug($slug)->whereStatus('PUBLISHED')->first();
+            return $this->model->whereSlug($slug)
+                ->with('tags')
+                ->whereStatus('PUBLISHED')
+                ->first();
         });
     }
 
@@ -46,6 +49,13 @@ class PostRepositoryCache  implements PostInterface
     {
         return $this->cache->remember('posts_cache', self::TTL, function () {
             return $this->model->active();
+        });
+    }
+
+    public function activePaginated()
+    {
+        return $this->cache->remember('posts_cache_paginated', self::TTL, function () {
+            return $this->model->getPaginated();
         });
     }
 }

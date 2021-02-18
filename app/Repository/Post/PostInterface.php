@@ -14,5 +14,7 @@ interface PostInterface
 
     public function activeItems();
 
+    public function activePaginated();
+
     // more
 }

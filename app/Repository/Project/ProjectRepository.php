@@ -37,6 +37,8 @@ class ProjectRepository  implements ProjectInterface
 
     public function getProject($slug)
     {
-        return $this->model->whereSlug($slug)->whereActive(true)->firstOrFail();
+        return $this->model->whereSlug($slug)->whereActive(true)
+        ->with(['tags','category'])
+        ->firstOrFail();
     }
 }

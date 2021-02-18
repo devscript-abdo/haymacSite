@@ -1,17 +1,16 @@
 <?php
 
-namespace App\Repository\Tag;
+namespace App\Repository\Comment;
 
-use App\Models\Tag;
+use App\Models\Comment;
 
-class TagRepository  implements TagInterface
+class CommentRepository  implements CommentInterface
 {
 
     protected $model;
 
-    public function __construct(Tag $model)
+    public function __construct(Comment $model)
     {
-
         $this->model = $model;
     }
 
@@ -26,13 +25,14 @@ class TagRepository  implements TagInterface
         return $this->model->all();
     }
 
+
     public function activeItems()
     {
         return $this->model->active();
     }
 
-    public function getTag($slug)
+    public function createComment($attributes)
     {
-        return $this->model->whereSlug($slug)->whereActive(true)-->first();
+        return $this->model->create($attributes);
     }
 }

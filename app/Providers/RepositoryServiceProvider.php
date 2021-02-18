@@ -57,6 +57,11 @@ class RepositoryServiceProvider extends ServiceProvider
             'App\Repository\Tag\TagInterface',
             'App\Repository\Tag\TagRepository'
         );
+
+        $this->app->bind(
+            'App\Repository\Comment\CommentInterface',
+            'App\Repository\Comment\CommentRepository'
+        );
     }
 
     /**

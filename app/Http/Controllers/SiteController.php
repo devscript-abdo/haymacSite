@@ -61,27 +61,32 @@ class SiteController extends Controller
 
         return view('dark.pages.portfolio.index', compact('projects'));
     }
-    public function singlePortfolio()
+    public function singlePortfolio($project)
     {
 
-        return view('dark.pages.portfolio.single.index');
+        $project = app(ProjectInterface::class)->getProject($project);
+
+        return view('dark.pages.portfolio.single.index', compact('project'));
     }
 
     public function blog()
     {
+        $posts = app(PostInterface::class)->activePaginated();
 
-        return view('dark.pages.blog.index');
+        return view('dark.pages.blog.index', compact('posts'));
     }
 
-    public function singleBlog()
+    public function singleBlog($post)
     {
-        return view('dark.pages.blog.single.index');
+        $post = app(PostInterface::class)->getPost($post);
+
+        return view('dark.pages.blog.single.index', compact('post'));
     }
 
     public function tags()
     {
         $tags = app(TagInterface::class)->activeItems();
-        
+
         return view('dark.pages.tags.index', compact('tags'));
     }
 }

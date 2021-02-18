@@ -27,11 +27,18 @@ class PostRepository  implements PostInterface
 
     public function getPost($slug)
     {
-        return $this->model->whereSlug($slug)->whereStatus('PUBLISHED')->first();
+        return $this->model->whereSlug($slug)->whereStatus('PUBLISHED')
+        ->with('tags')
+        ->first();
     }
 
     public function activeItems()
     {
         return $this->model->active();
+    }
+
+    public function activePaginated()
+    {
+        return $this->model->getPaginated(); 
     }
 }

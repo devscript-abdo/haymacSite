@@ -8,6 +8,7 @@ use Illuminate\Support\Str;
 use TCG\Voyager\Traits\Translatable;
 use TCG\Voyager\Facades\Voyager;
 use App\Traits\Language;
+use Carbon\Carbon;
 
 class Project extends Model
 {
@@ -61,9 +62,32 @@ class Project extends Model
         return Voyager::image($image ? array_shift($images) : setting('portfolio.portfolio_default_image'));
     }
 
+    public function singlePhoto($value)
+    {
+
+        return Voyager::image($value);
+    }
+
+    public function getAllPhotosAttribute()
+    {
+        $images =  json_decode($this->photos);
+        return $images;
+    }
+
+    public function getFullDateAttribute()
+    {
+        $date = Carbon::createFromFormat('Y-m-d H:i:s', $this->created_at);
+        return "<p> {$date->format('d')} {$date->format('F')} {$date->format('Y')} </p>";
+    }
+
     /*public function setTitleAttribute($value)
     {
         $this->attributes['title'] = $value;
         $this->attributes['slug'] = Str::slug($value);
     }*/
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 }
