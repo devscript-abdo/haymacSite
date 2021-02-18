@@ -8,6 +8,7 @@ use App\Repository\Post\PostInterface;
 use App\Repository\Project\ProjectInterface;
 use App\Repository\Service\ServiceInterface;
 use App\Repository\Slider\SliderInterface;
+use App\Repository\Tag\TagInterface;
 use App\Repository\Team\TeamInterface;
 use App\Repository\Testimonial\TestimonialInterface;
 use Illuminate\Http\Request;
@@ -56,7 +57,9 @@ class SiteController extends Controller
 
     public function portfolio()
     {
-        return view('dark.pages.portfolio.index');
+        $projects = app(ProjectInterface::class)->activeItems();
+
+        return view('dark.pages.portfolio.index', compact('projects'));
     }
     public function singlePortfolio()
     {
@@ -73,5 +76,12 @@ class SiteController extends Controller
     public function singleBlog()
     {
         return view('dark.pages.blog.single.index');
+    }
+
+    public function tags()
+    {
+        $tags = app(TagInterface::class)->activeItems();
+        
+        return view('dark.pages.tags.index', compact('tags'));
     }
 }

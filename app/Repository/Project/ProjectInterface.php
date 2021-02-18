@@ -12,6 +12,7 @@ interface ProjectInterface
     public function activeItems();
 
     public function homeItems();
-    // more
+
+    public function getProject($slug);
 
 }

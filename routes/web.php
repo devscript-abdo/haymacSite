@@ -37,6 +37,9 @@ Route::get('/nos-projets/{project}', [SiteController::class, 'singlePortfolio'])
 Route::get('/blog', [SiteController::class, 'blog'])->name('blog');
 Route::get('/blog/{post}', [SiteController::class, 'singleBlog'])->name('blog.single');
 
+Route::get('/tags', [SiteController::class, 'tags'])->name('tags');
+Route::get('/tags/{tag}', [SiteController::class, 'singleTag'])->name('tags.single');
+
 Route::get('/contactez-nous', [ContactController::class, 'index'])->name('contact');
 
 Route::group(['prefix' => 'theadmin'], function () {

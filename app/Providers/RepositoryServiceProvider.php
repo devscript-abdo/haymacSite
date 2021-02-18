@@ -52,6 +52,11 @@ class RepositoryServiceProvider extends ServiceProvider
             'App\Repository\Team\TeamInterface',
             'App\Repository\Team\TeamRepository'
         );
+
+        $this->app->bind(
+            'App\Repository\Tag\TagInterface',
+            'App\Repository\Tag\TagRepository'
+        );
     }
 
     /**

@@ -1,4 +1,3 @@
-    <!-- ==================== Start Intro ==================== -->
 
     <section class="intro-section section-padding pb-0">
         <div class="container">
@@ -18,5 +17,3 @@
             </div>
         </div>
     </section>
-
-    <!-- ==================== End Intro ==================== -->

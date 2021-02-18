@@ -35,7 +35,9 @@ class Project extends Model
 
     public function scopeActive($query)
     {
-        return $query->where('active', true)->get();
+        return $query->where('active', true)
+            ->with(['tags'])
+            ->get();
     }
 
     public function scopeSolutions($query)
@@ -46,7 +48,7 @@ class Project extends Model
     public function scopeHome($query)
     {
         return $query->where('active', true)
-            ->with(['translations', 'category'])
+            ->with(['category'])
             ->inRandomOrder()
             ->limit(5)
             ->get();
@@ -55,8 +57,8 @@ class Project extends Model
     public function getFirstPhotoAttribute()
     {
         $images =  json_decode($this->photos);
-        
-        return Voyager::image(array_shift($images));
+        $image = isset($images);
+        return Voyager::image($image ? array_shift($images) : setting('portfolio.portfolio_default_image'));
     }
 
     /*public function setTitleAttribute($value)

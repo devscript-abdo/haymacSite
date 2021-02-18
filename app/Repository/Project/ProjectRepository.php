@@ -34,4 +34,9 @@ class ProjectRepository  implements ProjectInterface
     {
         return $this->model->home();
     }
+
+    public function getProject($slug)
+    {
+        return $this->model->whereSlug($slug)->whereActive(true)->firstOrFail();
+    }
 }

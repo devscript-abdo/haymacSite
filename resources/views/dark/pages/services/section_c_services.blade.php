@@ -1,4 +1,3 @@
-    <!-- ==================== Start Services ==================== -->
 
     <section class="services section-padding">
         <div class="container">
@@ -16,5 +15,3 @@
             </div>
         </div>
     </section>
-
-    <!-- ==================== End Services ==================== -->

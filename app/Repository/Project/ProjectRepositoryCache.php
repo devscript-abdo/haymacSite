@@ -48,4 +48,11 @@ class ProjectRepositoryCache  implements ProjectInterface
             return $this->model->home();
         });
     }
+
+    public function getProject($slug)
+    {
+        return $this->cache->remember('project_cache' . $slug, self::TTL, function () use ($slug) {
+            return $this->model->whereSlug($slug)->whereActive(true)->firstOrFail();
+        });
+    }
 }
