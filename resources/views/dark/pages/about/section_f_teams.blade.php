@@ -45,7 +45,7 @@
                                         >
                                             <i class="fab fa-linkedin-in"></i>
                                         </a>
-                                        <a href="{{$team->website ? $team->website : request()->url()}}"
+                                        <a href="{{$team->website ? $team->website : request()->getSchemeAndHttpHost()}}"
                                             target="_blank"
                                         >
                                             <i class="fa fa-link" aria-hidden="true"></i>

@@ -1,12 +1,9 @@
-<!-- ==================== Start Navbar ==================== -->
 
 <nav class="navbar navbar-expand-lg">
     <div class="container">
-
-        <!-- Logo -->
         <a class="logo" href="{{route('home')}}">
-            {{--<img src="img/logo-light.png" alt="logo">--}}
-            <img src="https://www.haymacproduction.ma/wp-content/uploads/thegem-logos/logo_651cbcf55fc265d0d2d0b7047940a2f9_1x.png">
+ 
+            <img src="{{Voyager::image(setting('site.logo'))}}" alt="haymacproduction logo">
         </a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -14,7 +11,6 @@
             <span class="icon-bar"><i class="fas fa-bars"></i></span>
         </button>
 
-        <!-- navbar links -->
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
                 {{--@include('layouts.sections.__navDropdown')--}}

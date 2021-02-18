@@ -11,8 +11,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&amp;display=swap"
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@200;300;400;500;600;700&amp;display=swap"
-        rel="stylesheet">--}}
+        rel="stylesheet">
 
-<link rel="canonical" href="{{request()->url()}}" />
-<link rel="alternate" hreflang="en" href="{{request()->getSchemeAndHttpHost()}}/en" />
-<link rel="alternate" hreflang="fr" href="{{request()->getSchemeAndHttpHost()}}/fr" />
+<link rel="canonical" href="{{request()->url()}}" />--}}

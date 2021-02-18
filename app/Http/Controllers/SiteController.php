@@ -40,8 +40,10 @@ class SiteController extends Controller
         $services = app(ServiceInterface::class)->homeItems();
 
         $teams = app(TeamInterface::class)->activeItems();
-        
-        return view('dark.pages.about.index', compact('testimonials', 'services','teams'));
+
+        $clients  = app(ClientInterface::class)->activeItems();
+
+        return view('dark.pages.about.index', compact('testimonials', 'services', 'teams', 'clients'));
     }
 
     public function services()
