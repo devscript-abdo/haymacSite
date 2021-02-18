@@ -67,8 +67,9 @@
 
                     @include('dark.pages.blog.single.section_b_comments')
 
-                    @include('dark.pages.blog.single.section_b_comments_form')
-                    
+                    {{--@include('dark.pages.blog.single.section_b_comments_form')--}}
+    
+                    @livewire('comment.comments', ['post' => $post])
                 </div>
             </div>
         </div>

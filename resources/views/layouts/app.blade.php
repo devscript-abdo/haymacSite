@@ -9,7 +9,7 @@
     <title>Haymacproduction</title>
 
     <link rel="stylesheet" href="{{asset('css/app.css')}}" />
-
+    @livewireStyles
 </head>
 
 <body>
@@ -41,9 +41,9 @@
         @include('layouts.sections.footer')
 
      @endif   
-
+     
     <script src="{{asset('js/app.js')}}"></script>
-
+    @livewireScripts
 </body>
 <!--Elmarzougui Abdelghafour  Haymacproduction 2021-->
 </html>
