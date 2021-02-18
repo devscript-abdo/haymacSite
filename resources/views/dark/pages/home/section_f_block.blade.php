@@ -28,60 +28,24 @@
                                     <h4 class="wow fadeInLeft" data-wow-delay=".5s">What Client's Say?</h4>
                                 </div>
                                 <div class="slic-item wow fadeInUp" data-wow-delay=".5s">
-                                    <div class="item">
-                                        <p>Nulla metus metus ullamcorper vel tincidunt sed euismod nibh volutpat velit
-                                            class
-                                            aptent taciti sociosqu ad litora.</p>
-                                        <div class="info">
-                                            <div class="img">
-                                                <div class="img-box">
-                                                    <img src="img/clients/1.jpg" alt="">
+                                    @foreach($testimonials as $testi)
+                                        <div class="item">
+                                            <p>{{$testi->content}}</p>
+                                            <div class="info">
+                                                <div class="img">
+                                                    <div class="img-box">
+                                                        <img src="{{$testi->default_avatar}}" alt="{{$testi->name}}">
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="cont">
-                                                <div class="author">
-                                                    <h6 class="author-name custom-font">Alex Regelman</h6>
-                                                    <span class="author-details">Co-founder, Colabrio</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="item">
-                                        <p>Nulla metus metus ullamcorper vel tincidunt sed euismod nibh volutpat velit
-                                            class
-                                            aptent taciti sociosqu ad litora.</p>
-                                        <div class="info">
-                                            <div class="img">
-                                                <div class="img-box">
-                                                    <img src="img/clients/2.jpg" alt="">
-                                                </div>
-                                            </div>
-                                            <div class="cont">
-                                                <div class="author">
-                                                    <h6 class="author-name custom-font">Alex Regelman</h6>
-                                                    <span class="author-details">Co-founder, Colabrio</span>
+                                                <div class="cont">
+                                                    <div class="author">
+                                                        <h6 class="author-name custom-font">{{$testi->name}}</h6>
+                                                        <span class="author-details">{{$testi->post}}</span>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="item">
-                                        <p>Nulla metus metus ullamcorper vel tincidunt sed euismod nibh volutpat velit
-                                            class
-                                            aptent taciti sociosqu ad litora.</p>
-                                        <div class="info">
-                                            <div class="img">
-                                                <div class="img-box">
-                                                    <img src="img/clients/3.jpg" alt="">
-                                                </div>
-                                            </div>
-                                            <div class="cont">
-                                                <div class="author">
-                                                    <h6 class="author-name custom-font">Alex Regelman</h6>
-                                                    <span class="author-details">Co-founder, Colabrio</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
