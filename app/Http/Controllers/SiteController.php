@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Repository\Client\ClientInterface;
 use App\Repository\Page\PageInterface;
+use App\Repository\Post\PostInterface;
 use App\Repository\Project\ProjectInterface;
 use App\Repository\Service\ServiceInterface;
 use App\Repository\Slider\SliderInterface;
+use App\Repository\Team\TeamInterface;
 use App\Repository\Testimonial\TestimonialInterface;
 use Illuminate\Http\Request;
 
@@ -26,12 +28,20 @@ class SiteController extends Controller
 
         $testimonials = app(TestimonialInterface::class)->activeItems();
 
-        return view('dark.pages.home.index', compact('sliders', 'services', 'projects', 'clients', 'testimonials'));
+        $posts = app(PostInterface::class)->activeItems();
+
+        return view('dark.pages.home.index', compact('sliders', 'services', 'projects', 'clients', 'testimonials', 'posts'));
     }
 
     public function about()
     {
-        return view('dark.pages.about.index');
+        $testimonials = app(TestimonialInterface::class)->activeItems();
+
+        $services = app(ServiceInterface::class)->homeItems();
+
+        $teams = app(TeamInterface::class)->activeItems();
+        
+        return view('dark.pages.about.index', compact('testimonials', 'services','teams'));
     }
 
     public function services()

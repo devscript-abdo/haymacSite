@@ -12,8 +12,10 @@
    @include('dark.pages.home.section_c_services')
    @include('dark.pages.home.section_d_numbers')
    @include('dark.pages.home.section_e_works')
-   @include('dark.pages.home.section_f_block')
-   @include('dark.pages.home.section_g_skills')
+
+   {{--@include('dark.pages.home.section_f_block')--}}
+   @include('dark.pages.home.section_f_testimonials')
+   {{--@include('dark.pages.home.section_g_skills')--}}
    @include('dark.pages.home.section_h_clients')
    @include('dark.pages.home.section_i_blog')
    @include('dark.pages.home.section_j_action')

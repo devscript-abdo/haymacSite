@@ -24,6 +24,11 @@ class RepositoryServiceProvider extends ServiceProvider
         );
 
         $this->app->bind(
+            'App\Repository\Post\PostInterface',
+            'App\Repository\Post\PostRepository'
+        );
+
+        $this->app->bind(
             'App\Repository\Service\ServiceInterface',
             'App\Repository\Service\ServiceRepository'
         );
@@ -41,6 +46,11 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(
             'App\Repository\Testimonial\TestimonialInterface',
             'App\Repository\Testimonial\TestimonialRepository'
+        );
+
+        $this->app->bind(
+            'App\Repository\Team\TeamInterface',
+            'App\Repository\Team\TeamRepository'
         );
     }
 

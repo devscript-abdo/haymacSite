@@ -1,15 +1,15 @@
-<!-- ==================== Start Services ==================== -->
+
 <section class="services">
     <div class="container">
         <div class="sec-head custom-font text-center">
             {{--<h6 class="wow fadeIn" data-wow-delay=".5s">Best Features</h6>--}}
-            <h3 class="wow" data-splitting>{{__('home.our_services')}}</h3>
-            <span class="tbg">Services</span>
+            <h3 class="wow" data-splitting>{{setting('services.services_title')}}</h3>
+            <span class="tbg">{{setting('services.services_title')}}</span>
         </div>
         <div class="row">
             <div class="col-lg-3 col-md-6 item-box bg-img wow fadeInLeft" data-wow-delay=".3s"
-                data-background="{{asset('img/1.jpg')}}">
-                <h4 class="custom-font">{{__('home.our_services_features')}}</h4>
+                data-background="{{Voyager::image(setting('services.services_features_image'))}}">
+                <h4 class="custom-font">{{setting('services.services_features')}}</h4>
                 <a href="{{route('services')}}" class="btn-curve btn-bord btn-lit mt-40">
                     <span>{{__('buttons.allservices')}}</span>
                 </a>
@@ -25,5 +25,3 @@
     </div>
     <div class="half-bg bottom"></div>
 </section>
-
-<!-- ==================== End Services ==================== -->

@@ -1,12 +1,11 @@
-<!-- ==================== Start clients Brands ==================== -->
 
 <section class="clients section-padding">
     <div class="container">
         <div class="row">
             <div class="col-lg-4 valign">
                 <div class="sec-head custom-font mb-0">
-                    <h6>Clients</h6>
-                    <h3>Our <br> Clients.</h3>
+                    <h6>{{setting('clients.clients_title')}}</h6>
+                    <h3>{!!setting('clients.clients_title_our')!!}</h3>
                 </div>
             </div>
             <div class="col-lg-8">
@@ -17,7 +16,7 @@
                                 <div class="item wow fadeIn" data-wow-delay=".3s">
                                     <div class="img">
                                         <img src="{{$client->default_logo}}" alt="{{$client->seo_description}}">
-                                        <a href="#0" class="link" data-splitting>
+                                        <a  href="#" class="link" data-splitting>
                                             {{$client->name}}
                                         </a>
                                     </div>
@@ -41,5 +40,3 @@
         </div>
     </div>
 </section>
-
-<!-- ==================== End clients Brands ==================== -->

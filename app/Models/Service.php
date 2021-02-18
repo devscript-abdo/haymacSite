@@ -23,13 +23,15 @@ class Service extends Model
 
     public function scopeActive($query)
     {
-        return $query->where('active', true)->with('translations')->get();
+        return $query->where('active', true)
+       // ->with('translations')
+        ->get();
     }
 
     public function scopeHome($query)
     {
         return $query->where('active', true)
-            ->with('translations')
+            //->with('translations')
             ->inRandomOrder()
             ->limit(3)
             ->get();
