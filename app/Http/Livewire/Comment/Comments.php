@@ -32,6 +32,7 @@ class Comments extends Component
         $this->validate();
 
         $this->post->comments()->create($this->fields);
+        
         $this->clear();
     }
 

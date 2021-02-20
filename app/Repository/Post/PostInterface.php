@@ -10,7 +10,7 @@ interface PostInterface
 
     public function query();
 
-    public function getPost($slug);
+    public function getPost($slug, $with = []);
 
     public function activeItems();
 

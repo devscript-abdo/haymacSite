@@ -35,13 +35,16 @@ class PostRepositoryCache  implements PostInterface
         });
     }
 
-    public function getPost($slug)
+    public function getPost($slug, $with = [])
     {
         return $this->cache->remember('post_cache' . $slug, self::TTL, function () use ($slug) {
-            return $this->model->whereSlug($slug)
-                ->with('tags')
-                ->whereStatus('PUBLISHED')
-                ->first();
+            
+            if (isset($with) && is_array($with)) {
+                return $this->model->whereSlug($slug)->whereStatus('PUBLISHED')
+                    ->with($with)
+                    ->first();
+            }
+            return $this->model->whereSlug($slug)->whereStatus('PUBLISHED')->first();
         });
     }
 

@@ -2,47 +2,41 @@
 
 namespace App\Http\Controllers;
 
-use App\Repository\Client\ClientInterface;
-use App\Repository\Page\PageInterface;
-use App\Repository\Post\PostInterface;
-use App\Repository\Project\ProjectInterface;
-use App\Repository\Service\ServiceInterface;
-use App\Repository\Slider\SliderInterface;
-use App\Repository\Tag\TagInterface;
-use App\Repository\Team\TeamInterface;
-use App\Repository\Testimonial\TestimonialInterface;
+use App\Traits\InterfaceHandler;
 use Illuminate\Http\Request;
 
 class SiteController extends Controller
 {
 
+    use InterfaceHandler;
+
     public function index()
     {
 
-        $sliders  = app(SliderInterface::class)->activeItems();
+        $sliders  = $this->getModel('Slider')->activeItems();
 
-        $services = app(ServiceInterface::class)->homeItems();
+        $services = $this->getModel('Service')->homeItems();
 
-        $projects = app(ProjectInterface::class)->homeItems();
+        $projects = $this->getModel('Project')->homeItems();
 
-        $clients  = app(ClientInterface::class)->activeItems();
+        $clients  = $this->getModel('Client')->activeItems();
 
-        $testimonials = app(TestimonialInterface::class)->activeItems();
+        $testimonials = $this->getModel('Testimonial')->activeItems();
 
-        $posts = app(PostInterface::class)->activeItems();
+        $posts = $this->getModel('Post')->activeItems();
 
         return view('dark.pages.home.index', compact('sliders', 'services', 'projects', 'clients', 'testimonials', 'posts'));
     }
 
     public function about()
     {
-        $testimonials = app(TestimonialInterface::class)->activeItems();
+        $testimonials = $this->getModel('Testimonial')->activeItems();
 
-        $services = app(ServiceInterface::class)->homeItems();
+        $services = $this->getModel('Service')->homeItems();
 
-        $teams = app(TeamInterface::class)->activeItems();
+        $teams = $this->getModel('Team')->activeItems();
 
-        $clients  = app(ClientInterface::class)->activeItems();
+        $clients  = $this->getModel('Client')->activeItems();
 
         return view('dark.pages.about.index', compact('testimonials', 'services', 'teams', 'clients'));
     }
@@ -50,42 +44,42 @@ class SiteController extends Controller
     public function services()
     {
 
-        $services = app(ServiceInterface::class)->activeItems();
+        $services = $this->getModel('Service')->activeItems();
 
         return view('dark.pages.services.index', compact('services'));
     }
 
     public function portfolio()
     {
-        $projects = app(ProjectInterface::class)->activeItems();
+        $projects = $this->getModel('Project')->activeItems();
 
         return view('dark.pages.portfolio.index', compact('projects'));
     }
     public function singlePortfolio($project)
     {
 
-        $project = app(ProjectInterface::class)->getProject($project);
+        $project = $this->getModel('Project')->getProject($project);
 
         return view('dark.pages.portfolio.single.index', compact('project'));
     }
 
     public function blog()
     {
-        $posts = app(PostInterface::class)->activePaginated();
+        $posts = $this->getModel('Post')->activePaginated();
 
         return view('dark.pages.blog.index', compact('posts'));
     }
 
     public function singleBlog($post)
     {
-        $post = app(PostInterface::class)->getPost($post);
+        $post = $this->getModel('Post')->getPost($post, ['comments', 'tags']);
 
         return view('dark.pages.blog.single.index', compact('post'));
     }
 
     public function tags()
     {
-        $tags = app(TagInterface::class)->activeItems();
+        $tags = $this->getModel('Tag')->activeItems();
 
         return view('dark.pages.tags.index', compact('tags'));
     }

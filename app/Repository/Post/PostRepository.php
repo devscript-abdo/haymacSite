@@ -25,11 +25,14 @@ class PostRepository  implements PostInterface
         return $this->model->all();
     }
 
-    public function getPost($slug)
+    public function getPost($slug, $with = [])
     {
-        return $this->model->whereSlug($slug)->whereStatus('PUBLISHED')
-        ->with('tags')
-        ->first();
+        if (isset($with) && is_array($with)) {
+            return $this->model->whereSlug($slug)->whereStatus('PUBLISHED')
+                ->with($with)
+                ->first();
+        }
+        return $this->model->whereSlug($slug)->whereStatus('PUBLISHED')->first();
     }
 
     public function activeItems()
@@ -39,6 +42,6 @@ class PostRepository  implements PostInterface
 
     public function activePaginated()
     {
-        return $this->model->getPaginated(); 
+        return $this->model->getPaginated();
     }
 }
