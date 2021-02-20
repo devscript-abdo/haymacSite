@@ -14,3 +14,7 @@
    @include('dark.pages.contact.section_c_map')
  
 @endsection()
+
+@push('eventer')
+  @include('layouts.parts.__eventerScript')
+@endpush

@@ -5,9 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use TCG\Voyager\Facades\Voyager;
+use Spatie\Feed\Feedable;
+use Spatie\Feed\FeedItem;
+
 use Carbon\Carbon;
 
-class Post extends Model
+class Post extends Model implements Feedable
 {
     use HasFactory;
 
@@ -53,5 +56,24 @@ class Post extends Model
         $date = Carbon::createFromFormat('Y-m-d H:i:s', $this->created_at);
 
         return "<span class='num'> {$date->format('d')} </span> <span> {$date->format('F')} </span>";
+    }
+
+
+    /*****RSS FEED */
+
+    public function toFeedItem(): FeedItem
+    {
+        return FeedItem::create()
+            ->id($this->id)
+            ->title($this->title)
+            ->summary($this->excerpt)
+            ->updated($this->updated_at)
+            ->link(route('blog.single',$this->slug))
+            ->author('haymacproduction');
+    }
+
+    public static function getFeedItems()
+    {
+        return self::all();
     }
 }

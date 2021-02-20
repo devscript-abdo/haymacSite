@@ -9,6 +9,9 @@
     <title>Haymacproduction</title>
 
     <link rel="stylesheet" href="{{asset('css/app.css')}}" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">
+    @include('feed::links')
+    
     @livewireStyles
 </head>
 
@@ -43,7 +46,13 @@
      @endif   
      
     <script src="{{asset('js/app.js')}}"></script>
+
     @livewireScripts
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    
+    @stack('eventer')
+
 </body>
 <!--Elmarzougui Abdelghafour  Haymacproduction 2021-->
 </html>
