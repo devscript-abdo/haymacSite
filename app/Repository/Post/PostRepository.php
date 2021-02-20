@@ -30,7 +30,7 @@ class PostRepository  implements PostInterface
         if (isset($with) && is_array($with)) {
             return $this->model->whereSlug($slug)->whereStatus('PUBLISHED')
                 ->with($with)
-                ->first();
+                ->firstOrFail();
         }
         return $this->model->whereSlug($slug)->whereStatus('PUBLISHED')->first();
     }

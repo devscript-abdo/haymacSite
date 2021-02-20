@@ -11,5 +11,5 @@ interface TagInterface
 
     public function activeItems();
 
-    public function getTag($slug);
+    public function getTag($slug, $with = []);
 }

@@ -31,8 +31,14 @@ class TagRepository  implements TagInterface
         return $this->model->active();
     }
 
-    public function getTag($slug)
+    public function getTag($slug, $with = [])
     {
-        return $this->model->whereSlug($slug)->whereActive(true)-->first();
+        if (isset($with) && is_array($with)) {
+            return $this->model->whereSlug($slug)
+                ->whereActive(true)
+                ->with($with)
+                ->firstOrFail();
+        }
+        return $this->model->whereSlug($slug)->whereActive(true)->first();
     }
 }

@@ -8,7 +8,9 @@
                         <div class="path">
                             <a href="{{route('home')}}">Acceuil</a>
                             <span>/</span>
-                            <a href="{{route('tags')}}" class="active">{{setting('tags.tags_title')}}</a>
+                            <a href="{{route('tags')}}">Tags</a>
+                            <span>/</span>
+                            <a href="{{route('tags.single',$tag->slug)}}" class="active">{{$tag->name}}</a>
                         </div>
                     </div>
                 </div>

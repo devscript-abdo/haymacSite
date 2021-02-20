@@ -83,4 +83,10 @@ class SiteController extends Controller
 
         return view('dark.pages.tags.index', compact('tags'));
     }
+    public function singleTag($tag)
+    {
+        $tag = $this->Tag()->getTag($tag, ['projects']);
+        
+        return view('dark.pages.tags.single.index', compact('tag'));
+    }
 }
