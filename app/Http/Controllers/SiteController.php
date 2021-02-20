@@ -13,30 +13,30 @@ class SiteController extends Controller
     public function index()
     {
 
-        $sliders  = $this->getModel('Slider')->activeItems();
+        $sliders  = $this->Slider()->activeItems();
 
-        $services = $this->getModel('Service')->homeItems();
+        $services = $this->Service()->homeItems();
 
-        $projects = $this->getModel('Project')->homeItems();
+        $projects = $this->Project()->homeItems();
 
-        $clients  = $this->getModel('Client')->activeItems();
+        $clients  = $this->Client()->activeItems();
 
-        $testimonials = $this->getModel('Testimonial')->activeItems();
+        $testimonials = $this->Testimonial()->activeItems();
 
-        $posts = $this->getModel('Post')->activeItems();
+        $posts = $this->Post()->activeItems();
 
         return view('dark.pages.home.index', compact('sliders', 'services', 'projects', 'clients', 'testimonials', 'posts'));
     }
 
     public function about()
     {
-        $testimonials = $this->getModel('Testimonial')->activeItems();
+        $testimonials = $this->Testimonial()->activeItems();
 
-        $services = $this->getModel('Service')->homeItems();
+        $services = $this->Service()->homeItems();
 
-        $teams = $this->getModel('Team')->activeItems();
+        $teams = $this->Team()->activeItems();
 
-        $clients  = $this->getModel('Client')->activeItems();
+        $clients  = $this->Client()->activeItems();
 
         return view('dark.pages.about.index', compact('testimonials', 'services', 'teams', 'clients'));
     }
@@ -44,42 +44,42 @@ class SiteController extends Controller
     public function services()
     {
 
-        $services = $this->getModel('Service')->activeItems();
+        $services = $this->Service()->activeItems();
 
         return view('dark.pages.services.index', compact('services'));
     }
 
     public function portfolio()
     {
-        $projects = $this->getModel('Project')->activeItems();
+        $projects = $this->Project()->activeItems();
 
         return view('dark.pages.portfolio.index', compact('projects'));
     }
     public function singlePortfolio($project)
     {
 
-        $project = $this->getModel('Project')->getProject($project);
+        $project = $this->Project()->getProject($project);
 
         return view('dark.pages.portfolio.single.index', compact('project'));
     }
 
     public function blog()
     {
-        $posts = $this->getModel('Post')->activePaginated();
+        $posts = $this->Post()->activePaginated();
 
         return view('dark.pages.blog.index', compact('posts'));
     }
 
     public function singleBlog($post)
     {
-        $post = $this->getModel('Post')->getPost($post, ['comments', 'tags']);
+        $post = $this->Post()->getPost($post, ['comments', 'tags']);
 
         return view('dark.pages.blog.single.index', compact('post'));
     }
 
     public function tags()
     {
-        $tags = $this->getModel('Tag')->activeItems();
+        $tags = $this->Tag()->activeItems();
 
         return view('dark.pages.tags.index', compact('tags'));
     }

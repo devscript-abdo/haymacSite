@@ -5,6 +5,11 @@ namespace App\Traits;
 trait InterfaceHandler
 {
 
+    public function __call($name, $arguments)
+    {
+
+        return  $this->getModel($name);
+    }
 
     public function getModel($modelName)
     {
