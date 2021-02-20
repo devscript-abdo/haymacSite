@@ -14,7 +14,7 @@ class ServiceObserver
      */
     public function created(Service $service)
     {
-        info('Woow' . $service->slug);
+        cache()->pull('services_cache');
     }
 
     /**
@@ -25,9 +25,6 @@ class ServiceObserver
      */
     public function updated(Service $service)
     {
-        info('Woow Updated -' . $service->slug);
-        /**Whene update any service remove the cache  */
-        info(cache('services_cache'));
         cache()->pull('services_cache');
     }
 
@@ -39,7 +36,7 @@ class ServiceObserver
      */
     public function deleted(Service $service)
     {
-        //
+        cache()->pull('services_cache');
     }
 
     /**

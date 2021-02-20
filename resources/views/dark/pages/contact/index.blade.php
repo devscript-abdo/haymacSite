@@ -16,5 +16,16 @@
 @endsection()
 
 @push('eventer')
-  @include('layouts.parts.__eventerScript')
+
+ 
+@endpush
+
+@push('styles')
+
+  <style>
+
+    .cryptedmail:after{content:attr(data-name) "@" attr(data-domain) "." attr(data-tld)}
+    
+  </style>
+
 @endpush

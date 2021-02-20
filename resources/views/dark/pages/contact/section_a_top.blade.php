@@ -1,4 +1,3 @@
-    <!-- ==================== Start header ==================== -->
 
     <header class="works-header fixed-slider hfixd valign">
         <div class="container">
@@ -6,9 +5,8 @@
                 <div class="col-lg-9 col-md-11 static">
                     <div class="capt mt-50">
                         <div class="parlx">
-                            <h2 class="custom-font"><span>Let's</span>Talk About Your project.</h2>
-                            <p>Feel free to ask me any question or let’s do to talk about
-                                our future collaboration.</p>
+                            <h2 class="custom-font">{!!setting('contact.contact_page_title')!!}</h2>
+                            <p>{{setting('contact.contact_page_description')}}</p>
                         </div>
 
                         <div class="bactxt custom-font valign">
@@ -19,5 +17,3 @@
             </div>
         </div>
     </header>
-
-    <!-- ==================== End header ==================== -->

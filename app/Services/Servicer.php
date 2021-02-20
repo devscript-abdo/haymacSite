@@ -12,7 +12,7 @@ abstract class Servicer
     {
     }
 
-    public function execute(string $method, array $data)
+    public function execute(string $method, $data)
     {
 
         if (method_exists($this, $method)) {

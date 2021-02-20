@@ -14,7 +14,9 @@ class PostObserver
      */
     public function created(Post $post)
     {
-        //
+        cache()->pull('posts_cache');
+        cache()->pull('post_cache');
+        cache()->pull('posts_cache_paginated');
     }
 
     /**
@@ -25,9 +27,11 @@ class PostObserver
      */
     public function updated(Post $post)
     {
-        info('cache was deleted');
-        cache()->pull('posts_cache');
-        info($post);
+       // info('cache was deleted');
+       cache()->pull('posts_cache');
+       cache()->pull('post_cache');
+       cache()->pull('posts_cache_paginated');
+      //  info($post);
     }
 
     /**
@@ -38,7 +42,9 @@ class PostObserver
      */
     public function deleted(Post $post)
     {
-        //
+        cache()->pull('posts_cache');
+        cache()->pull('post_cache');
+        cache()->pull('posts_cache_paginated');
     }
 
     /**

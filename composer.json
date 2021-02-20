@@ -20,6 +20,7 @@
         "renatomarinho/laravel-page-speed": "^2.0",
         "spatie/laravel-feed": "^3.1",
         "spatie/laravel-honeypot": "^3.0",
+        "spatie/laravel-newsletter": "^4.9",
         "tcg/voyager": "^1.4"
     },
     "require-dev": {

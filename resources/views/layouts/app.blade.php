@@ -11,8 +11,11 @@
     <link rel="stylesheet" href="{{asset('css/app.css')}}" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">
     @include('feed::links')
-    
+     
     @livewireStyles
+
+    @stack('styles')
+    
 </head>
 
 <body>
@@ -50,6 +53,8 @@
     @livewireScripts
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+    @include('layouts.parts.__eventerScript')
     
     @stack('eventer')
 
