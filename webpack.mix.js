@@ -15,6 +15,7 @@ mix.webpackConfig({
  |
  */
 
+ /**F3C12C */
 mix.styles(
     [
         "resources/css/plugins/bootstrap.min.css",
@@ -23,7 +24,7 @@ mix.styles(
         "resources/css/plugins/pe-icon-7-stroke.css",
         "resources/css/plugins/fontawesome-all.min.css",
         "resources/css/plugins/justifiedGallery.min.css",
-        "resources/css/plugins/YouTubePopUp.css",
+        //"resources/css/plugins/YouTubePopUp.css",
         "resources/css/plugins/slick.css",
         "resources/css/plugins/slick-theme.css",
         "resources/css/plugins/swiper.min.css",

@@ -37,10 +37,8 @@
                 </li>
               {{--@include('layouts.sections.__language')--}}
             </ul>
-            <div class="search">
-                <span class="icon pe-7s-search cursor-pointer" id="haymacSearch"></span>
-                    
-                {{--@livewire('search.search')--}}
+            <div class="search" id="haymacSearch">
+                <span class="icon pe-7s-search cursor-pointer" ></span>
             </div>
         </div>
     </div>

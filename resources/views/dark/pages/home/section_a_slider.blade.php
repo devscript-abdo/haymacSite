@@ -13,7 +13,7 @@
                                         {{--<h1 data-splitting>Unique <br> brand Stories</h1>--}}
                                         <h1 data-splitting>{{$slider->title}}</h1>
                                         <p>{{$slider->description}}</p>
-                                        <a href="{{$slider->button_link}}" class="btn-curve btn-lit mt-30">
+                                        <a href="{{$slider->button_link ?? request()->url()}}" class="btn-curve btn-lit mt-30">
                                             <span>{{$slider->button_text}}</span>
                                         </a>
                                     </div>

@@ -41,5 +41,4 @@ class ClientRepositoryCache  implements ClientInterface
             return $this->model->active();
         });
     }
-
 }

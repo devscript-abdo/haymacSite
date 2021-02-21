@@ -8,8 +8,7 @@
                     {{--@include('dark.pages.search.section_b_res')--}}
 
                     {{--@include('dark.pages.blog.single.section_b_comments_form')--}}
-    
-                   
+
                 </div>
             </div>
         </div>

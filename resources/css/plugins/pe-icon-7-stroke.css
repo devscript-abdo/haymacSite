@@ -1,9 +1,9 @@
 @font-face {
 	font-family: 'Pe-icon-7-stroke';
-	src:url('fonts/Pe-icon-7-strokebb1d.html?d7yf1v');
-	src:url('fonts/Pe-icon-7-stroked41d.html?#iefixd7yf1v') format('embedded-opentype'),
-		url('fonts/Pe-icon-7-strokebb1d-2.html?d7yf1v') format('woff'),
-		url('fonts/Pe-icon-7-strokebb1d-3.html?d7yf1v') format('truetype');
+	src:url('fonts/Pe-icon-7-strokebb1d.html');
+	src:url('fonts/Pe-icon-7-stroked41d.html') format('embedded-opentype'),
+		url('fonts/Pe-icon-7-strokebb1d-2.html') format('woff'),
+		url('fonts/Pe-icon-7-strokebb1d-3.html') format('truetype');
 	
 	font-weight: normal;
 	font-style: normal;

@@ -10,7 +10,7 @@
 
     <link rel="stylesheet" href="{{asset('css/app.css')}}" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">
-    @include('feed::links')
+   
      
     @livewireStyles
 
@@ -20,7 +20,7 @@
 
 <body>
 
-    {{--@include('layouts.sections.loader')
+     {{--@include('layouts.sections.loader')
 
      @include('layouts.sections.progress')--}}
 

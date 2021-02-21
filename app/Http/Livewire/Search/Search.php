@@ -12,6 +12,11 @@ class Search extends Component
 
     public $results;
 
+    protected $rules = ['query' => 'required|string'];
+
+    protected $messages = [
+        'query.required'=>'tapez ce que vous voulez trouvé'
+    ];
     public function render()
     {
         return view('livewire.search.search', ['results' => $this->results]);
@@ -19,7 +24,8 @@ class Search extends Component
 
     public function submit(SearchService $service)
     {
-        //dd($this->query);
+        $this->validate();
+
         $this->results = $service->execute('runSearcher', $this->query);
     }
 }

@@ -36,7 +36,7 @@ class TestimonialRepositoryCache  implements TestimonialInterface
 
     public function activeItems()
     {
-        return $this->cache->remember('testimonials_cache', self::TTL, function () {
+        return $this->cache->remember('testimonials_cache_active', self::TTL, function () {
             return $this->model->active();
         });
     }

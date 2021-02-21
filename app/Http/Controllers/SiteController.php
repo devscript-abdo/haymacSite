@@ -4,11 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Traits\InterfaceHandler;
 use Illuminate\Http\Request;
+use Artesaos\SEOTools\Traits\SEOTools as SEOToolsTrait;
 
 class SiteController extends Controller
 {
 
-    use InterfaceHandler;
+    use InterfaceHandler, SEOToolsTrait;
 
     public function index()
     {

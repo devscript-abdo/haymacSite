@@ -32,12 +32,21 @@ class Comments extends Component
         $this->validate();
 
         $this->post->comments()->create($this->fields);
-        
+
         $this->clear();
+        return $this->sendNotificationTobrowser([
+            'type' => 'success',
+            'message' => 'Merci votre commenter a été evnoyer'
+        ]);
     }
 
     public function clear()
     {
         $this->fields = null;
+    }
+
+    private function sendNotificationTobrowser($options = [])
+    {
+        $this->dispatchBrowserEvent('emailSended', $options);
     }
 }

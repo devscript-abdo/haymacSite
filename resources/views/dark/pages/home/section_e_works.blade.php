@@ -1,4 +1,3 @@
-<!-- ==================== Start works ==================== -->
 
 <section class="work-carousel section-padding pt-0 metro position-re">
     <div class="container ontop">
@@ -18,7 +17,7 @@
                                     </div>
                                     <div class="cont">
                                         <h6>
-                                            <a href="#0">
+                                            <a href="{{route('home')}}">
                                               {{$project->category->name}}
                                             </a>
                                         </h6>
@@ -35,10 +34,10 @@
 
                     <!-- slider setting -->
                     <div class="swiper-button-next swiper-nav-ctrl simp-next cursor-pointer">
-                        <span class="simple-btn right">Next</span>
+                        <span class="simple-btn right">Suivante</span>
                     </div>
                     <div class="swiper-button-prev swiper-nav-ctrl simp-prev cursor-pointer">
-                        <span class="simple-btn">Prev</span>
+                        <span class="simple-btn">Précédente</span>
                     </div>
                 </div>
             </div>
@@ -46,5 +45,3 @@
     </div>
     <div class="half-bg top"></div>
 </section>
-
-<!-- ==================== End works ==================== -->

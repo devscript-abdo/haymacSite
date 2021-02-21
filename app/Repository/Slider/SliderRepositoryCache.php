@@ -39,7 +39,7 @@ class SliderRepositoryCache  implements SliderInterface
 
 	public function activeItems()
 	{
-		return $this->cache->remember('sliders_cache', self::TTL, function () {
+		return $this->cache->remember('sliders_cache_active', self::TTL, function () {
 			return $this->model->active();
 		});
 	}

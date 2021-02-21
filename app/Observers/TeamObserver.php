@@ -15,6 +15,7 @@ class TeamObserver
     public function created(Team $team)
     {
         cache()->pull('teams_cache');
+        cache()->pull('teams_cache_active');
     }
 
     /**
@@ -26,6 +27,7 @@ class TeamObserver
     public function updated(Team $team)
     {
         cache()->pull('teams_cache');
+        cache()->pull('teams_cache_active');
     }
 
     /**
@@ -37,6 +39,7 @@ class TeamObserver
     public function deleted(Team $team)
     {
         cache()->pull('teams_cache');
+        cache()->pull('teams_cache_active');
     }
 
     /**

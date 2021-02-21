@@ -41,21 +41,21 @@ class ProjectRepositoryCache  implements ProjectInterface
 
     public function activeItems()
     {
-        return $this->cache->remember('projects_cache', self::TTL, function () {
+        return $this->cache->remember('projects_cache_active', self::TTL, function () {
             return $this->model->active();
         });
     }
 
     public function homeItems()
     {
-        return $this->cache->remember('projects_cache', self::TTL, function () {
+        return $this->cache->remember('projects_cache_home', self::TTL, function () {
             return $this->model->home();
         });
     }
 
     public function getProject($slug)
     {
-        return $this->cache->remember('project_cache' . $slug, self::TTL, function () use ($slug) {
+        return $this->cache->remember('project_cache_' . $slug, self::TTL, function () use ($slug) {
             return $this->model->whereSlug($slug)->whereActive(true)
                 ->with(['tags', 'category'])
                 ->firstOrFail();

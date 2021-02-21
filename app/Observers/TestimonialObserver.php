@@ -15,6 +15,8 @@ class TestimonialObserver
     public function created(Testimonial $testimonial)
     {
        cache()->pull('testimonials_cache');
+       cache()->pull('testimonials_cache_active');
+
     }
 
     /**
@@ -26,6 +28,7 @@ class TestimonialObserver
     public function updated(Testimonial $testimonial)
     {
         cache()->pull('testimonials_cache');
+        cache()->pull('testimonials_cache_active');
     }
 
     /**
@@ -37,6 +40,7 @@ class TestimonialObserver
     public function deleted(Testimonial $testimonial)
     {
         cache()->pull('testimonials_cache');
+        cache()->pull('testimonials_cache_active');
     }
 
     /**

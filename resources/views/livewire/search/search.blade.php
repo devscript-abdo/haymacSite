@@ -1,7 +1,6 @@
 <div>
     
     <div class="comment-form">
-        <h1>Que cherchez vous ?</h1>
         <div class="form">
             <form action="">
                 <div class="row">
@@ -9,12 +8,19 @@
                         <div class="form-group">
                             <input 
                                 type="text"
-                                placeholder=""
+                                placeholder="tapez ici pour rechercher "
                                 wire:model.defer="query"
                                 name="query"
+                                class="form-control @error('query') is-invalid @enderror"
                             >
-
+                            @error('query')
+        
+                                <span class="invalid-feedback" role="alert" >
+                                    <strong style="color:white !important">{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
+
                     </div>
 
                     <div class="col-12">

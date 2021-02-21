@@ -26,3 +26,11 @@ Artisan::command('log:clear', function () {
     
 })->describe('Clear log files');
 
+Artisan::command('sitemap:clear', function () {
+
+    exec('rm ' . public_path('sitemap.xml'));
+
+    $this->comment('sitemap have been cleared!');
+    
+})->describe('Clear sitemap file');
+

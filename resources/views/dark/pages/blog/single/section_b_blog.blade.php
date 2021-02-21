@@ -46,9 +46,11 @@
                                     </div>--}}
                                     <div class="share-info">
                                         <div class="social">
-                                            <a href="#0"><i class="fab fa-facebook-f"></i></a>
-                                            <a href="#0"><i class="fab fa-twitter"></i></a>
-                                            <a href="#0"><i class="fab fa-behance"></i></a>
+                                            <a href="{{request()->fullUrl()}}" >
+                                                <i class="fab fa-facebook-f"></i>
+                                            </a>
+                                            <a href="{{request()->fullUrl()}}"><i class="fab fa-twitter"></i></a>
+                                            <a href="{{request()->fullUrl()}}"><i class="fab fa-behance"></i></a>
                                         </div>
                                         <div class="tags">
                                             @foreach($post->tags as $tag)

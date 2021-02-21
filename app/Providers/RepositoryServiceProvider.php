@@ -15,52 +15,52 @@ class RepositoryServiceProvider extends ServiceProvider
     {
         $this->app->bind(
             'App\Repository\Slider\SliderInterface',
-            'App\Repository\Slider\SliderRepository'
+            'App\Repository\Slider\SliderRepositoryCache'
         );
 
         $this->app->bind(
             'App\Repository\Page\PageInterface',
-            'App\Repository\Page\PageRepository'
+            'App\Repository\Page\PageRepositoryCache'
         );
 
         $this->app->bind(
             'App\Repository\Post\PostInterface',
-            'App\Repository\Post\PostRepository'
+            'App\Repository\Post\PostRepositoryCache'
         );
 
         $this->app->bind(
             'App\Repository\Service\ServiceInterface',
-            'App\Repository\Service\ServiceRepository'
+            'App\Repository\Service\ServiceRepositoryCache'
         );
 
         $this->app->bind(
             'App\Repository\Project\ProjectInterface',
-            'App\Repository\Project\ProjectRepository'
+            'App\Repository\Project\ProjectRepositoryCache'
         );
 
         $this->app->bind(
             'App\Repository\Client\ClientInterface',
-            'App\Repository\Client\ClientRepository'
+            'App\Repository\Client\ClientRepositoryCache'
         );
 
         $this->app->bind(
             'App\Repository\Testimonial\TestimonialInterface',
-            'App\Repository\Testimonial\TestimonialRepository'
+            'App\Repository\Testimonial\TestimonialRepositoryCache'
         );
 
         $this->app->bind(
             'App\Repository\Team\TeamInterface',
-            'App\Repository\Team\TeamRepository'
+            'App\Repository\Team\TeamRepositoryCache'
         );
 
         $this->app->bind(
             'App\Repository\Tag\TagInterface',
-            'App\Repository\Tag\TagRepository'
+            'App\Repository\Tag\TagRepositoryCache'
         );
 
         $this->app->bind(
             'App\Repository\Comment\CommentInterface',
-            'App\Repository\Comment\CommentRepository'
+            'App\Repository\Comment\CommentRepositoryCache'
         );
     }
 

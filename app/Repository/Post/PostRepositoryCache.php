@@ -37,7 +37,7 @@ class PostRepositoryCache  implements PostInterface
 
     public function getPost($slug, $with = [])
     {
-        return $this->cache->remember('post_cache' . $slug, self::TTL, function () use ($slug, $with) {
+        return $this->cache->remember('post_cache_' . $slug, self::TTL, function () use ($slug, $with) {
 
             if (isset($with) && is_array($with)) {
                 return $this->model->whereSlug($slug)->whereStatus('PUBLISHED')
@@ -50,7 +50,7 @@ class PostRepositoryCache  implements PostInterface
 
     public function activeItems()
     {
-        return $this->cache->remember('posts_cache', self::TTL, function () {
+        return $this->cache->remember('posts_cache_active', self::TTL, function () {
             return $this->model->active();
         });
     }

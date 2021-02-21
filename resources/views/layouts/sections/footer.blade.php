@@ -21,16 +21,16 @@
                     <div class="social-icon">
                         <h6 class="custom-font stit simple-btn">Suivez nous</h6>
                         <div class="social">
-                            <a href="{{setting('contact.contact_facebook')}}" class="icon">
+                            <a href="{{setting('contact.contact_facebook') ?? request()->url()}}" class="icon">
                                 <i class="fab fa-facebook-f"></i>
                             </a>
-                            <a href="{{setting('contact.contact_twitter')}}" class="icon">
+                            <a href="{{setting('contact.contact_twitter') ?? request()->url()}}" class="icon">
                                 <i class="fab fa-twitter"></i>
                             </a>
-                            <a href="{{setting('contact.contact_linkedin')}}" class="icon">
+                            <a href="{{setting('contact.contact_linkedin') ?? request()->url()}}" class="icon">
                                 <i class="fab fa-linkedin"></i>
                             </a>
-                            <a href="{{setting('contact.contact_instagram')}}" class="icon">
+                            <a href="{{setting('contact.contact_instagram') ?? request()->url()}}" class="icon">
                                 <i class="fab fa-instagram"></i>
                             </a>
                         </div>

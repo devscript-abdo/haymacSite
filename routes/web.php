@@ -57,6 +57,10 @@ Route::group(['prefix' => 'theadmin'], function () {
 
     Route::group(['prefix' => 'dev'], function () {
 
+        Route::get('/sitemap', function () {
+            Artisan::command('sitemap:generate');
+        });
+
         Route::get('/optimize', function () {
             Artisan::command('optimize');
         });

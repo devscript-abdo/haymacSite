@@ -36,14 +36,14 @@ class TagRepositoryCache  implements TagInterface
 
     public function activeItems()
     {
-        return $this->cache->remember('tags_cache', self::TTL, function () {
+        return $this->cache->remember('tags_cache_active', self::TTL, function () {
             return $this->model->active();
         });
     }
     public function getTag($slug, $with = [])
     {
 
-        return $this->cache->remember('tag_cache' . $slug, self::TTL, function () use ($slug, $with) {
+        return $this->cache->remember('tag_cache_' . $slug, self::TTL, function () use ($slug, $with) {
             if (isset($with) && is_array($with)) {
                 return $this->model->whereSlug($slug)
                     ->whereActive(true)

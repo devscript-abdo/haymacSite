@@ -14,8 +14,9 @@ class TagObserver
      */
     public function created(Tag $tag)
     {
-        cache()->pull('tag_cache');
+        cache()->pull('tag_cache_'.$tag->slug);
         cache()->pull('tags_cache');
+        cache()->pull('tags_cache_active');
     }
 
     /**
@@ -26,8 +27,9 @@ class TagObserver
      */
     public function updated(Tag $tag)
     {
-        cache()->pull('tag_cache');
+        cache()->pull('tag_cache_'.$tag->slug);
         cache()->pull('tags_cache');
+        cache()->pull('tags_cache_active');
     }
 
     /**
@@ -38,8 +40,9 @@ class TagObserver
      */
     public function deleted(Tag $tag)
     {
-        cache()->pull('tag_cache');
+        cache()->pull('tag_cache_'.$tag->slug);
         cache()->pull('tags_cache');
+        cache()->pull('tags_cache_active');
     }
 
     /**

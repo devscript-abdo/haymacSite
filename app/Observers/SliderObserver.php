@@ -15,6 +15,7 @@ class SliderObserver
     public function created(Slider $slider)
     {
         cache()->pull('sliders_cache');
+        cache()->pull('sliders_cache_active');
     }
 
     /**
@@ -26,6 +27,7 @@ class SliderObserver
     public function updated(Slider $slider)
     {
         cache()->pull('sliders_cache');
+        cache()->pull('sliders_cache_active');
     }
 
     /**
@@ -37,6 +39,7 @@ class SliderObserver
     public function deleted(Slider $slider)
     {
         cache()->pull('sliders_cache');
+        cache()->pull('sliders_cache_active');
     }
 
     /**

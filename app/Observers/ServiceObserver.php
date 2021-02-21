@@ -15,6 +15,8 @@ class ServiceObserver
     public function created(Service $service)
     {
         cache()->pull('services_cache');
+        cache()->pull('services_cache_active');
+        cache()->pull('services_cache_home');
     }
 
     /**
@@ -26,6 +28,8 @@ class ServiceObserver
     public function updated(Service $service)
     {
         cache()->pull('services_cache');
+        cache()->pull('services_cache_active');
+        cache()->pull('services_cache_home');
     }
 
     /**
@@ -37,6 +41,8 @@ class ServiceObserver
     public function deleted(Service $service)
     {
         cache()->pull('services_cache');
+        cache()->pull('services_cache_active');
+        cache()->pull('services_cache_home');
     }
 
     /**

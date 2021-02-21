@@ -36,7 +36,7 @@ class TeamRepositoryCache  implements TeamInterface
 
     public function activeItems()
     {
-        return $this->cache->remember('teams_cache', self::TTL, function () {
+        return $this->cache->remember('teams_cache_active', self::TTL, function () {
             return $this->model->active();
         });
     }
