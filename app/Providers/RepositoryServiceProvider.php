@@ -15,42 +15,42 @@ class RepositoryServiceProvider extends ServiceProvider
     {
         $this->app->bind(
             'App\Repository\Slider\SliderInterface',
-            'App\Repository\Slider\SliderRepositoryCache'
+            'App\Repository\Slider\SliderRepository'
         );
 
         $this->app->bind(
             'App\Repository\Page\PageInterface',
-            'App\Repository\Page\PageRepositoryCache'
+            'App\Repository\Page\PageRepository'
         );
 
         $this->app->bind(
             'App\Repository\Post\PostInterface',
-            'App\Repository\Post\PostRepositoryCache'
+            'App\Repository\Post\PostRepository'
         );
 
         $this->app->bind(
             'App\Repository\Service\ServiceInterface',
-            'App\Repository\Service\ServiceRepositoryCache'
+            'App\Repository\Service\ServiceRepository'
         );
 
         $this->app->bind(
             'App\Repository\Project\ProjectInterface',
-            'App\Repository\Project\ProjectRepositoryCache'
+            'App\Repository\Project\ProjectRepository'
         );
 
         $this->app->bind(
             'App\Repository\Client\ClientInterface',
-            'App\Repository\Client\ClientRepositoryCache'
+            'App\Repository\Client\ClientRepository'
         );
 
         $this->app->bind(
             'App\Repository\Testimonial\TestimonialInterface',
-            'App\Repository\Testimonial\TestimonialRepositoryCache'
+            'App\Repository\Testimonial\TestimonialRepository'
         );
 
         $this->app->bind(
             'App\Repository\Team\TeamInterface',
-            'App\Repository\Team\TeamRepositoryCache'
+            'App\Repository\Team\TeamRepository'
         );
 
         $this->app->bind(
@@ -60,7 +60,7 @@ class RepositoryServiceProvider extends ServiceProvider
 
         $this->app->bind(
             'App\Repository\Comment\CommentInterface',
-            'App\Repository\Comment\CommentRepositoryCache'
+            'App\Repository\Comment\CommentRepository'
         );
     }
 

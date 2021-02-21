@@ -39,6 +39,7 @@ Route::get('/nos-projets/{project}', [SiteController::class, 'singlePortfolio'])
 Route::get('/nos-solutions', [SiteController::class, 'solutions'])->name('solutions');
 
 Route::get('/blog', [SiteController::class, 'blog'])->name('blog');
+
 Route::get('/blog/{post}', [SiteController::class, 'singleBlog'])
     ->middleware(ProtectAgainstSpam::class)
     ->name('blog.single');

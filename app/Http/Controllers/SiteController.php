@@ -2,18 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Middleware\SeoChecker;
+use App\Http\Seo\BlogHandler;
 use App\Traits\InterfaceHandler;
 use Illuminate\Http\Request;
-use Artesaos\SEOTools\Traits\SEOTools as SEOToolsTrait;
+use Illuminate\Support\Arr;
 
 class SiteController extends Controller
 {
 
-    use InterfaceHandler, SEOToolsTrait;
+    use InterfaceHandler;
 
     public function index()
     {
-
         $sliders  = $this->Slider()->activeItems();
 
         $services = $this->Service()->homeItems();

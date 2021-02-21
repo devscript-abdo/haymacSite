@@ -91,4 +91,10 @@ class Post extends Model implements Feedable, Searchable
 
         );
     }
+     /***** */
+     
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 }

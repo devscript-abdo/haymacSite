@@ -182,6 +182,8 @@ return [
         // App\Providers\RepositoryCacheServiceProvider::class,
         App\Providers\ViewComposerServiceProvider::class,
 
+        App\Providers\SeoServiceProvider::class,
+
     ],
 
     /*
