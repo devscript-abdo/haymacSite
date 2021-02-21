@@ -8,9 +8,12 @@ use Illuminate\Support\Str;
 use TCG\Voyager\Traits\Translatable;
 use TCG\Voyager\Facades\Voyager;
 use App\Traits\Language;
+use Spatie\Searchable\Searchable;
+use Spatie\Searchable\SearchResult;
+
 use Carbon\Carbon;
 
-class Project extends Model
+class Project extends Model implements Searchable
 {
 
     use HasFactory, Translatable, Language;
@@ -43,7 +46,9 @@ class Project extends Model
 
     public function scopeSolutions($query)
     {
-        return $query->where('oursolution', true)->get();
+        return $query->where('oursolution', true)
+            ->with(['category', 'tags'])
+            ->first();
     }
 
     public function scopeHome($query)
@@ -89,5 +94,18 @@ class Project extends Model
     public function getRouteKeyName()
     {
         return 'slug';
+    }
+
+    /******Search  */
+
+    public function getSearchResult(): SearchResult
+    {
+        $url = route('portfolio.single', $this->slug);
+        return new \Spatie\Searchable\SearchResult(
+            $this,
+            $this->title,
+            $url,
+
+        );
     }
 }

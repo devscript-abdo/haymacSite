@@ -25,3 +25,4 @@ Artisan::command('log:clear', function () {
     $this->comment('Logs have been cleared!');
     
 })->describe('Clear log files');
+

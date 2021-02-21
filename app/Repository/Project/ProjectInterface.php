@@ -5,6 +5,8 @@ namespace App\Repository\Project;
 interface ProjectInterface
 {
 
+   // public function __call($name, $args);
+
     public function all();
 
     public function query();
@@ -15,4 +17,5 @@ interface ProjectInterface
 
     public function getProject($slug);
 
+    public function getSolutions();
 }

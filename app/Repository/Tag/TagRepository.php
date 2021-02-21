@@ -34,6 +34,7 @@ class TagRepository  implements TagInterface
     public function getTag($slug, $with = [])
     {
         if (isset($with) && is_array($with)) {
+            
             return $this->model->whereSlug($slug)
                 ->whereActive(true)
                 ->with($with)

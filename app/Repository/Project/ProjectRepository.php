@@ -15,6 +15,10 @@ class ProjectRepository  implements ProjectInterface
         $this->model = $model;
     }
 
+   /* public function __call($name, $args)
+    {
+        return $this->model->$name;
+    }*/
 
     public function query()
     {
@@ -38,7 +42,12 @@ class ProjectRepository  implements ProjectInterface
     public function getProject($slug)
     {
         return $this->model->whereSlug($slug)->whereActive(true)
-        ->with(['tags','category'])
-        ->firstOrFail();
+            ->with(['tags', 'category'])
+            ->firstOrFail();
+    }
+
+    public function getSolutions()
+    {
+        return $this->model->solutions();
     }
 }

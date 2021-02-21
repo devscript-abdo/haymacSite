@@ -27,7 +27,7 @@
                     <a class="nav-link" href="{{route('portfolio')}}">Portfolio</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('home')}}">Nos solutions</a>
+                    <a class="nav-link" href="{{route('solutions')}}">Nos solutions</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('blog')}}">Blog et actualitée</a>
@@ -35,35 +35,13 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('contact')}}">Contactez nous</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" 
-                    data-toggle="dropdown" href="#" role="button"
-                        aria-haspopup="true" aria-expanded="false">Language</a>
-                    <div class="dropdown-menu">
-                        @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
-                            <a 
-                              rel="alternate" 
-                              hreflang="{{ $localeCode }}" 
-                              href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}"
-                              class="dropdown-item" 
-                            >
-                              {{ $properties['native'] }}
-                            </a>
-                        @endforeach
-                    </div>
-                </li>
+              {{--@include('layouts.sections.__language')--}}
             </ul>
             <div class="search">
-                <span class="icon pe-7s-search cursor-pointer"></span>
-                <div class="search-form text-center custom-font">
-                    <form>
-                        <input type="text" name="search" placeholder="Search">
-                    </form>
-                    <span class="close pe-7s-close cursor-pointer"></span>
-                </div>
+                <span class="icon pe-7s-search cursor-pointer" id="haymacSearch"></span>
+                    
+                {{--@livewire('search.search')--}}
             </div>
         </div>
     </div>
 </nav>
-
-<!-- ==================== End Navbar ==================== -->

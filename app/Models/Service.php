@@ -7,8 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 use App\Traits\Language;
 use TCG\Voyager\Traits\Translatable;
+use Spatie\Searchable\Searchable;
+use Spatie\Searchable\SearchResult;
 
-class Service extends Model
+class Service extends Model  implements Searchable
 {
 
 
@@ -24,8 +26,8 @@ class Service extends Model
     public function scopeActive($query)
     {
         return $query->where('active', true)
-       // ->with('translations')
-        ->get();
+            // ->with('translations')
+            ->get();
     }
 
     public function scopeHome($query)
@@ -42,4 +44,16 @@ class Service extends Model
         $this->attributes['title'] = $value;
         $this->attributes['slug'] = Str::slug($value);
     }*/
+
+    /******Search  */
+
+    public function getSearchResult(): SearchResult
+    {
+       
+        return new \Spatie\Searchable\SearchResult(
+            $this,
+            $this->title,
+            
+        );
+    }
 }

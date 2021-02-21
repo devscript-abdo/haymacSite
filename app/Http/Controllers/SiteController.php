@@ -86,7 +86,17 @@ class SiteController extends Controller
     public function singleTag($tag)
     {
         $tag = $this->Tag()->getTag($tag, ['projects']);
-        
+
         return view('dark.pages.tags.single.index', compact('tag'));
+    }
+
+    public function solutions()
+    {
+
+        $project = $this->Project()->getSolutions();
+        if ($project->exists()) {
+            return view('dark.pages.portfolio.single.index', compact('project'));
+        }
+        return redirect()->route('portfolio');
     }
 }

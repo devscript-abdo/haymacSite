@@ -58,6 +58,15 @@
     
     @stack('eventer')
 
+    <script>
+        let = searcher = document.getElementById('haymacSearch');
+
+        searcher.addEventListener("click", function(){
+
+            window.location = '{{route('search')}}';
+        });
+    </script>
+
 </body>
 <!--Elmarzougui Abdelghafour  Haymacproduction 2021-->
 </html>

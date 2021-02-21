@@ -7,10 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 use TCG\Voyager\Facades\Voyager;
 use Spatie\Feed\Feedable;
 use Spatie\Feed\FeedItem;
-
+use Spatie\Searchable\Searchable;
+use Spatie\Searchable\SearchResult;
 use Carbon\Carbon;
 
-class Post extends Model implements Feedable
+class Post extends Model implements Feedable, Searchable
 {
     use HasFactory;
 
@@ -68,12 +69,26 @@ class Post extends Model implements Feedable
             ->title($this->title)
             ->summary($this->excerpt)
             ->updated($this->updated_at)
-            ->link(route('blog.single',$this->slug))
+            ->link(route('blog.single', $this->slug))
             ->author('haymacproduction');
     }
 
     public static function getFeedItems()
     {
         return self::all();
+    }
+
+    /******Search  */
+
+    public function getSearchResult(): SearchResult
+    {
+
+        $url = route('blog.single', $this->slug);
+        return new \Spatie\Searchable\SearchResult(
+            $this,
+            $this->title,
+            $url
+
+        );
     }
 }

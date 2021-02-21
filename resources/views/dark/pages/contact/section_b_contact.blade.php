@@ -1,6 +1,5 @@
-        <!-- ==================== Start Contact ==================== -->
 
-        <section class="contact section-padding">
+    <section class="contact section-padding">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6">

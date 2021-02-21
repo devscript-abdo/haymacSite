@@ -22,6 +22,10 @@ class ProjectRepositoryCache  implements ProjectInterface
         $this->model = $model;
     }
 
+   /* public function __call($name, $args)
+    {
+        $this->model->{$name};
+    }*/
 
     public function query()
     {
@@ -55,6 +59,14 @@ class ProjectRepositoryCache  implements ProjectInterface
             return $this->model->whereSlug($slug)->whereActive(true)
                 ->with(['tags', 'category'])
                 ->firstOrFail();
+        });
+    }
+
+    public function getSolutions()
+    {
+
+        return $this->cache->remember('projects_solution_cache', self::TTL, function () {
+            return $this->model->solutions();
         });
     }
 }

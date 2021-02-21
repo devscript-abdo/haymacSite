@@ -10,7 +10,7 @@
                         </div>
 
                         <div class="bactxt custom-font valign">
-                            <span class="full-width">Works</span>
+                            <span class="full-width">Projets</span>
                         </div>
                     </div>
                 </div>
