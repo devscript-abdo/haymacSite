@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Middleware\SeoChecker;
 use App\Http\Seo\BlogHandler;
+use App\Models\Subscription;
 use App\Traits\InterfaceHandler;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
@@ -100,5 +101,19 @@ class SiteController extends Controller
             return view('dark.pages.portfolio.single.index', compact('project'));
         }
         return redirect()->route('portfolio');
+    }
+
+    public function subscribe(Request $request)
+    {
+        $request->validate(['email' => 'required|email|unique:subscriptions']);
+
+        $item = Subscription::create($request->email);
+
+        if ($item) {
+
+            return true;
+        }
+        
+        return false;
     }
 }

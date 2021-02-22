@@ -24,6 +24,8 @@ return [
     */
     'skip' => [
         
+        'que-cherchez-vous',
+        'que-cherchez-vous/',
         'blog/*',
         'contactez-nous',
         'contactez-nous/',
