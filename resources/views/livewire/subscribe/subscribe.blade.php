@@ -1,7 +1,8 @@
 <div>
     <form>
         <div class="form-group custom-font">
-            
+            @csrf
+            @honeypot
             <input type="email" name="email" wire:model.defer="email" placeholder="E-mail"
              class="form-control @error('email') is-invalid @enderror"
              required>

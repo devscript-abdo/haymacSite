@@ -1,6 +1,7 @@
 <form>
     <div class="form-group custom-font">
-        
+        @csrf
+        @honeypot
         <input type="email" name="email"  placeholder="E-mail"
          class="form-control @error('email') is-invalid @enderror"
          required>
