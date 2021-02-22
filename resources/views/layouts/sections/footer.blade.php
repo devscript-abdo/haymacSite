@@ -41,7 +41,8 @@
                 <div class="subscribe mb-50">
                     <h6 class="custom-font stit simple-btn">newsletter</h6>
                     <p>Inscrivez-vous à la newsletter!</p>
-                      @livewire('subscribe.subscribe')
+                      {{--@livewire('subscribe.subscribe')--}}
+                      @include('layouts.sections.subscribeForm')
                 </div>
                 <div class="insta">
                     <h6 class="custom-font stit simple-btn">Instagram Post</h6>

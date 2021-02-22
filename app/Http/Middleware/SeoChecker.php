@@ -37,10 +37,13 @@ class SeoChecker
             if (Str::endsWith(request()->route()->getName(), ['single', '.single'])) {
 
                 $singleHandler = explode('.', $Handler);
-            
-                app("App\\Http\\Seo\\{$singleHandler[0]}Handler")->single($request->route()->parameters());
+
+                $slug = $request->route()->parameters();
+
+                app("App\\Http\\Seo\\{$singleHandler[0]}Handler")->single($slug);
+                
             } else {
-                app("App\\Http\\Seo\\{$Handler}Handler");
+                app("App\\Http\\Seo\\{$Handler}Handler")->all();
             }
             // app("App\\Http\\Seo\\{$Handler}Handler");
         }

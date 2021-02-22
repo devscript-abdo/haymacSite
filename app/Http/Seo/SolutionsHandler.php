@@ -7,7 +7,7 @@ use TCG\Voyager\Facades\Voyager;
 class SolutionsHandler extends SeoHandler
 {
 
-    public function __construct()
+    public function all()
     {
 
         $this->seo()->setTitle(setting('site.title'));

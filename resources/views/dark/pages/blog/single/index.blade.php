@@ -7,3 +7,15 @@
    @include('dark.pages.blog.single.section_b_blog')
 
 @endsection()
+
+@section('livewireSectionStyle')
+
+  @livewireStyles
+
+@endsection()
+
+@section('livewireSectionScript')
+
+  @livewireScripts
+  
+@endsection()

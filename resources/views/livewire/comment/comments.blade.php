@@ -47,7 +47,7 @@
                             <button class="btn-curve btn-color btn-lg"
                               wire:click.prevent="submit()"
                              >
-                             <span>Submit</span>
+                             <span>Ajouter</span>
                            </button>
                                
                         </div>

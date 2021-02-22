@@ -23,8 +23,13 @@ return [
     |
     */
     'skip' => [
+        
+        'blog/*',
+        'contactez-nous',
+        'contactez-nous/',
         'theadmin',
         'theadmin/*',
+
         '*.xml',
         '*.less',
         '*.pdf',

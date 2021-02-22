@@ -15,6 +15,22 @@
  
 @endsection()
 
+
+
+@section('livewireSectionStyle')
+
+  @livewireStyles
+
+@endsection()
+
+@section('livewireSectionScript')
+
+  @livewireScripts
+  
+@endsection()
+
+
+
 @push('eventer')
 
  

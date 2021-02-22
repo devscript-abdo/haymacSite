@@ -16,6 +16,11 @@ class Post extends Model implements Feedable, Searchable
     use HasFactory;
 
 
+    public function category()
+    {
+
+        return $this->belongsTo('App\Models\Category');
+    }
     public function tags()
     {
         return $this->belongsToMany('App\Models\Tag', 'post_tag', 'post_id', 'tag_id');
@@ -91,8 +96,8 @@ class Post extends Model implements Feedable, Searchable
 
         );
     }
-     /***** */
-     
+    /***** */
+
     public function getRouteKeyName()
     {
         return 'slug';

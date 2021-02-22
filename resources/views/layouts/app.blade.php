@@ -11,8 +11,9 @@
     <link rel="stylesheet" href="{{asset('css/app.css')}}" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">
    
-     
-    @livewireStyles
+     @yield('livewireSectionStyle')
+
+    
 
     @stack('styles')
     
@@ -50,7 +51,9 @@
      
     <script src="{{asset('js/app.js')}}"></script>
 
-    @livewireScripts
+   
+
+    @yield('livewireSectionScript')
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
