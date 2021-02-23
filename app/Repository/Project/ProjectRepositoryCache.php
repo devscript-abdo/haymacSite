@@ -55,7 +55,9 @@ class ProjectRepositoryCache  implements ProjectInterface
 
     public function getProject($slug)
     {
-        return $this->cache->remember('project_cache_' . $slug, self::TTL, function () use ($slug) {
+        $sluger = json_encode($slug);
+
+        return $this->cache->remember("project_cache_{$sluger}", self::TTL, function () use ($slug) {
             return $this->model->whereSlug($slug)->whereActive(true)
                 ->with(['tags', 'category'])
                 ->firstOrFail();

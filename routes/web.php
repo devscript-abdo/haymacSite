@@ -59,31 +59,31 @@ Route::group(['prefix' => 'theadmin'], function () {
     Route::group(['prefix' => 'dev'], function () {
 
         Route::get('/sitemap', function () {
-            Artisan::command('sitemap:generate');
+            Artisan::call('sitemap:generate');
         });
 
         Route::get('/optimize', function () {
-            Artisan::command('optimize');
+            Artisan::call('optimize');
         });
 
         Route::get('/cache-config', function () {
-            Artisan::command('config:cache');
+            Artisan::call('config:cache');
         });
         Route::get('/cache-route', function () {
-            Artisan::command('route:cache');
+            Artisan::call('route:cache');
         });
         Route::get('/cache-view', function () {
-            Artisan::command('view:cache');
+            Artisan::call('view:cache');
         });
 
         Route::get('/clear-config', function () {
-            Artisan::command('config:clear');
+            Artisan::call('config:clear');
         });
         Route::get('/clear-route', function () {
-            Artisan::command('route:clear');
+            Artisan::call('route:clear');
         });
         Route::get('/clear-view', function () {
-            Artisan::command('view:clear');
+            Artisan::call('view:clear');
         });
     });
 });

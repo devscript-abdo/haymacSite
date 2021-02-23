@@ -2,7 +2,6 @@
 
 namespace App\Http\Middleware;
 
-use App\Http\Seo\HomeHandler;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;

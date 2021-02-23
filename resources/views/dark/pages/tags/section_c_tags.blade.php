@@ -16,7 +16,7 @@
                                 <div class="item wow fadeIn" data-wow-delay=".3s">
                                     <div class="img">
                                         <img src="{{$tag->default_logo}}" alt="{{$tag->seo_description}}">
-                                        <a  href="#" class="link" data-splitting>
+                                        <a  href="{{route('tags.single',$tag->slug)}}" class="link" data-splitting>
                                             {{$tag->name}}
                                         </a>
                                     </div>

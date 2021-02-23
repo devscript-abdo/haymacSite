@@ -14,11 +14,12 @@ class ProjectObserver
      */
     public function created(Project $project)
     {
+        $sluger = json_encode($project->slug);
         cache()->pull('projects_cache');
         cache()->pull('projects_cache_home');
         cache()->pull('projects_cache_active');
         cache()->pull('projects_solution_cache');
-        cache()->pull('project_cache_'.$project->slug);
+        cache()->pull("project_cache_{$sluger}");
     }
 
     /**
@@ -29,11 +30,12 @@ class ProjectObserver
      */
     public function updated(Project $project)
     {
+        $sluger = json_encode($project->slug);
         cache()->pull('projects_cache');
         cache()->pull('projects_cache_home');
         cache()->pull('projects_cache_active');
         cache()->pull('projects_solution_cache');
-        cache()->pull('project_cache_'.$project->slug);
+        cache()->pull("project_cache_{$sluger}");
     }
 
     /**
@@ -44,11 +46,12 @@ class ProjectObserver
      */
     public function deleted(Project $project)
     {
+        $sluger = json_encode($project->slug);
         cache()->pull('projects_cache');
         cache()->pull('projects_cache_home');
         cache()->pull('projects_cache_active');
         cache()->pull('projects_solution_cache');
-        cache()->pull('project_cache_'.$project->slug);
+        cache()->pull("project_cache_{$sluger}");
     }
 
     /**
@@ -59,7 +62,12 @@ class ProjectObserver
      */
     public function restored(Project $project)
     {
-        //
+        $sluger = json_encode($project->slug);
+        cache()->pull('projects_cache');
+        cache()->pull('projects_cache_home');
+        cache()->pull('projects_cache_active');
+        cache()->pull('projects_solution_cache');
+        cache()->pull("project_cache_{$sluger}");
     }
 
     /**
@@ -70,6 +78,11 @@ class ProjectObserver
      */
     public function forceDeleted(Project $project)
     {
-        //
+        $sluger = json_encode($project->slug);
+        cache()->pull('projects_cache');
+        cache()->pull('projects_cache_home');
+        cache()->pull('projects_cache_active');
+        cache()->pull('projects_solution_cache');
+        cache()->pull("project_cache_{$sluger}");
     }
 }

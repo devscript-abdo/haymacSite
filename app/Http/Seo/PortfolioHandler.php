@@ -28,7 +28,7 @@ class PortfolioHandler extends SeoHandler
     public function single($project)
     {
         $data = app(ProjectInterface::class)->getProject($project);
-
+        //dd($data->category->name);
         $tags = $data->tags->pluck(['name'])->implode(', ');
 
         $this->seo()->setTitle($data->seo_title);
@@ -42,7 +42,7 @@ class PortfolioHandler extends SeoHandler
         $this->seo()->opengraph()->addImage($data->first_photo, ['height' => 300, 'width' => 300]);
         $this->seoMeta()::addMeta('article:published_time', $data->created_at->toW3CString(), 'property');
         $this->seoMeta()::addMeta('article:modified_time', $data->updated_at->toW3CString(), 'property');
-        $this->seoMeta()::addMeta('article:section', $data->category->name, 'property');
+        $this->seoMeta()::addMeta('article:section', $data->category->name ??'portfolio', 'property');
         $this->seoMeta()::addMeta('article:tag', $tags, 'property');
         $this->seoMeta()::addMeta('article:author', 'Haymacproduction', 'property');
         $this->seoMeta()::addKeyword([$data->seo_keywords]);

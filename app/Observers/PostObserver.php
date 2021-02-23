@@ -13,9 +13,10 @@ class PostObserver
      * @return void
      */
     public function created(Post $post)
-    {
+    { 
+        $sluger = json_encode($post->slug);
         cache()->pull('posts_cache');
-        cache()->pull('post_cache_');
+        cache()->pull("post_cache_{$sluger}");
         cache()->pull('posts_cache_paginated');
         cache()->pull('posts_cache_active');
     }
@@ -28,12 +29,11 @@ class PostObserver
      */
     public function updated(Post $post)
     {
-       // info('cache was deleted');
-       cache()->pull('posts_cache');
-        cache()->pull('post_cache_');
+        $sluger = json_encode($post->slug);
+        cache()->pull('posts_cache');
+        cache()->pull("post_cache_{$sluger}");
         cache()->pull('posts_cache_paginated');
         cache()->pull('posts_cache_active');
-      //  info($post);
     }
 
     /**
@@ -44,8 +44,9 @@ class PostObserver
      */
     public function deleted(Post $post)
     {
+        $sluger = json_encode($post->slug);
         cache()->pull('posts_cache');
-        cache()->pull('post_cache_');
+        cache()->pull("post_cache_{$sluger}");
         cache()->pull('posts_cache_paginated');
         cache()->pull('posts_cache_active');
     }
@@ -58,7 +59,11 @@ class PostObserver
      */
     public function restored(Post $post)
     {
-        //
+        $sluger = json_encode($post->slug);
+        cache()->pull('posts_cache');
+        cache()->pull("post_cache_{$sluger}");
+        cache()->pull('posts_cache_paginated');
+        cache()->pull('posts_cache_active');
     }
 
     /**
@@ -69,6 +74,10 @@ class PostObserver
      */
     public function forceDeleted(Post $post)
     {
-        //
+        $sluger = json_encode($post->slug);
+        cache()->pull('posts_cache');
+        cache()->pull("post_cache_{$sluger}");
+        cache()->pull('posts_cache_paginated');
+        cache()->pull('posts_cache_active');
     }
 }
